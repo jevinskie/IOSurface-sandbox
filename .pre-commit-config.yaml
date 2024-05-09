@@ -20,18 +20,23 @@ repos:
   - id: check-merge-conflict
   - id: trailing-whitespace
     args: [--markdown-linebreak-ext=md]
-  # - id: pretty-format-json
-  #   args: [--autofix, --no-sort-keys, --top-keys, 'version,cmakeMinimumRequired,include,configurePresets,buildPresets,testPresets,packagePresets,workflowPresets,vendor']
+  - id: pretty-format-json
+    args: [--autofix, --no-sort-keys, --top-keys, 'version,cmakeMinimumRequired,include,configurePresets,buildPresets,testPresets,packagePresets,workflowPresets,vendor']
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
   rev: v2.13.0
   hooks:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
-# - repo: https://github.com/pre-commit/mirrors-clang-format
-#   rev: v18.1.5
+- repo: https://github.com/pre-commit/mirrors-clang-format
+  rev: v18.1.5
+  hooks:
+  - id: clang-format
+    types_or: [c++, c, objective-c, objective-c++, metal]
+# - repo: https://github.com/comkieffer/pre-commit-xmllint.git
+#   rev: 1.0.0
 #   hooks:
-#   - id: clang-format
-#     types_or: [c++, c, objective-c, objective-c++]
+#     - id: xmllint
+#       args: [--format]
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.6.0
   hooks:

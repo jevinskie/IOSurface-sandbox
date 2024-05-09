@@ -32,11 +32,13 @@ repos:
   hooks:
   - id: clang-format
     types_or: [c++, c, objective-c, objective-c++, metal]
-# - repo: https://github.com/comkieffer/pre-commit-xmllint.git
-#   rev: 1.0.0
-#   hooks:
-#     - id: xmllint
-#       args: [--format]
+- repo: https://github.com/pamoller/xmlformatter
+  rev: v0.2.6
+  hooks:
+  - id: xml-formatter
+    files: ^.*\.(xml|plist|xcworkspacedata|storyboard|xib)$
+    types: [file]
+    args: [--overwrite, --eof-newline, --indent=4, --selfclose]
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.6.0
   hooks:
